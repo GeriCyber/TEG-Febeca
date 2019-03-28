@@ -219,17 +219,23 @@ $db = new funciones_BD();
                                 <select data-placeholder="Seleccionar" multiple class="form-control standardSelect" id="empresas">
                                     <option value=""></option>
                                     <?php 
-                                    if (empty($_SESSION["id_sucursal"])) {
+                                     if (empty($_SESSION["id_sucursal"])) {
                                         $empresas = $db->buscar_sucursales();
                                         foreach ($empresas as $empresa)
                                         { 
                                             if(!empty($db->buscar_categoria($empresa["id_sucursal"]))) { ?>
                                             <option value=<?=$empresa["id_sucursal"]; ?> ><?=$empresa["nombre"]; ?></option>
-                                            <?php } 
+                                            <?php } else { ?>
+                                                <option disabled><?=$empresa["nombre"]; ?> (Sin categorías)</option>
+                                            <? }
                                         } 
-                                    } else { ?>
-                                        <option value=<?=$_SESSION["id_sucursal"]; ?> ><?=$db->GetEmpresaName($_SESSION["id_sucursal"]); ?></option>
-                                    <?php } ?>
+                                    } else { 
+                                        if(!empty($db->buscar_categoria($_SESSION["id_sucursal"]))) { ?>
+                                            <option value=<?=$_SESSION["id_sucursal"]; ?> ><?=$db->GetEmpresaName($_SESSION["id_sucursal"]); ?></option>
+                                        <?php } else { ?>
+                                                <option disabled><?=$db->GetEmpresaName($_SESSION["id_sucursal"]); ?> (Sin categorías)</option>
+                                            <? }
+                                        } ?>
                                     <input type="hidden" name="empresas" id="op_seleccionadas">
                                 </select>
                                 <span class="help-block text-muted">Dejar vacío para desasignsar</span>

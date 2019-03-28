@@ -98,7 +98,7 @@
 						                                    </li>
 						                                <?php } 
 						                                } 
-						                                else { ?> No hay Videos caducados...
+						                                else { ?> No hay Vídeos caducados...
 						                            <?php } ?>
 				                                </ul>	
                                             </div>

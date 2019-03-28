@@ -1330,6 +1330,7 @@ class funciones_BD
         $db = $this->connect();
         $query = "SELECT * FROM $elemento WHERE etiqueta='Si'";
         $caducados = [];
+        $lista = [];
         $elemento = substr($elemento, 0, -1);
         $result = mysqli_query($db, $query);
         if ($result)

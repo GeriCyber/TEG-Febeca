@@ -283,8 +283,10 @@ $(document).ready(function()
         }
         var fila_seleccionada = table.row(this).data();
         var id_categoria = fila_seleccionada[0];
-        console.log(id_categoria);
+        var nombre = fila_seleccionada[1];
+        /*console.log(id_categoria);*/
         $('.oculto_id_categoria').attr('value', id_categoria);
+        $('#descripcion-mod').attr('value', nombre);
     } );
 });
 

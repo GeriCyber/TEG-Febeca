@@ -200,3 +200,11 @@ table.dataTable thead th.dt-checkboxes-select-all
 {
     width: 700px;
 }
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body-long{
+    height: 400px !important;
+    overflow-y: auto !important;
+}

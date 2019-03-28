@@ -126,7 +126,7 @@ $roles = $db->buscar_rol();
                         <i class="fa fa-times-circle"></i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-body-long">
 
                     <form class="form-horizontal" method="post" autocomplete="off" action="inc/usuarios/registrar_usuario.php">
                         <fieldset>
@@ -270,7 +270,7 @@ $roles = $db->buscar_rol();
                         <i class="fa fa-times-circle"></i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-body-long">
 
                 <form class="form-horizontal" method="post" autocomplete="off" action="inc/usuarios/actualizar_usuario.php">
                 <fieldset>
@@ -285,7 +285,7 @@ $roles = $db->buscar_rol();
                                     <label class="form-control-label" for="id_tipo_falla">Empresa</label>
                                 </div>
                                 <div class="col-md-8 col-12">
-                                    <select id="id_sucursal" name="id_sucursal" class="form-control">
+                                    <select id="id_sucursal-edit" name="id_sucursal" class="form-control mb-1">
                                 <?php   
                                     $empresas = $db->buscar_sucursales();                     
                                     foreach ($empresas as $empresa) 
@@ -293,6 +293,9 @@ $roles = $db->buscar_rol();
                                     <option value=<?=$empresa["id_sucursal"]; ?> ><?=$empresa["nombre"]; ?></option>
                                 <?php } ?>
                                     </select>
+                                    <span class="help-block text-muted">Empresa actual: 
+                                        <span id="span-empresa"></span> 
+                                    </span>
                                 </div>
                             </div>
                         <?php } ?>
@@ -305,7 +308,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="nombre">Nombre <b class="text-danger">*</b></label>
                         </div>
                         <div class="col-12 col-md-8">
-                            <input id="nombre" maxlength="40" name="nombre" type="text" class="form-control input-md" required>
+                            <input id="nombre-edit" maxlength="40" name="nombre" type="text" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -314,7 +317,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="apellido">Apellido <b class="text-danger">*</b></label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="apellido" maxlength="40" name="apellido" type="text" class="form-control input-md" required>
+                            <input id="apellido-edit" maxlength="40" name="apellido" type="text" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -323,7 +326,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="cedula">Cédula</label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="cedula" name="cedula" type="text" placeholder="No se puede modificar" disabled="" class="form-control input-md">
+                            <input id="cedula-edit" name="cedula" type="text" placeholder="No se puede modificar" disabled="" class="form-control input-md">
                         </div>
                     </div>
 
@@ -332,7 +335,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="telefono">Teléfono <b class="text-danger">*</b></label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="telefono" name="telefono" type="text" placeholder="Ej: 04128742563" class="form-control input-md" required>
+                            <input id="telefono-edit" name="telefono" type="text" placeholder="Ej: 04128742563" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -341,7 +344,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="telefono">Correo <b class="text-danger">*</b></label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="correo" name="correo" type="email" placeholder="Ej: email@gmail.com" class="form-control input-md" required>
+                            <input id="correo-edit" name="correo" type="email" placeholder="Ej: email@gmail.com" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -350,7 +353,7 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="id_usuario">Nombre de Usuario</label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="id_usuario" maxlength="40" name="id_usuario" type="text" class="form-control input-md" placeholder="No se puede modificar" disabled="">
+                            <input id="id_usuario-edit" maxlength="40" name="id_usuario" type="text" class="form-control input-md" placeholder="No se puede modificar" disabled="">
                         </div>
                     </div>
 
@@ -376,6 +379,9 @@ $roles = $db->buscar_rol();
                             $k++;
                             } 
                         ?>
+                        <span class="help-block text-muted">Rol actual: 
+                            <span id="span-rol"></span> 
+                        </span>
 
                         </div>
                     </div>
@@ -540,10 +546,28 @@ $(document).ready(function()
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         }
+
         var fila_seleccionada = table.row(this).data();
-        var id_usuario = fila_seleccionada[0];
-        console.log(id_usuario);
-        $('.oculto_id_usuario').attr('value', id_usuario);
+        var data = [];
+        for (var i = 0; i <= 7; i++) {
+            data[i] = fila_seleccionada[i];
+        }
+        
+        /*var id_usuario = fila_seleccionada[0];
+        var nombre = fila_seleccionada[1];
+        var apellido = fila_seleccionada[2];
+        var cedula = fila_seleccionada[3];
+        var telefono = fila_seleccionada[4];
+        var correo = fila_seleccionada[5];
+        var empresa = fila_seleccionada[6];
+        var rol = fila_seleccionada[7];*/
+        $('.oculto_id_usuario').attr('value', data[0]);
+        $('#nombre-edit').attr('value', data[1]);
+        $('#apellido-edit').attr('value', data[2]);
+        $('#telefono-edit').attr('value', data[4]);
+        $('#correo-edit').attr('value', data[5]);
+        $('#span-empresa').text(data[6]);
+        $('#span-rol').text(data[7]);
     });  
 
     $('#eliminar_usuarios').attr('disabled', true);
@@ -560,7 +584,7 @@ $(document).ready(function()
             datos.push(rowId);
         });
         var itemSelected = JSON.stringify(datos);
-        console.log(itemSelected);
+        /*console.log(itemSelected);*/
         $('#oculto_usuarios').attr('value', itemSelected);
         if($.isEmptyObject(datos))
              $('#eliminar_usuarios').attr('disabled', true);

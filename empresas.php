@@ -63,7 +63,7 @@
                             { ?>
                                 <tr>
                                     <td class="d-none"><?=$empresa['id_sucursal']; ?></td>
-                                    <td style="vertical-align: middle;"><?=$empresa['nombre']; ?>&nbsp;
+                                    <td style="vertical-align: middle;"><?=$empresa['nombre']; ?>
                                         <?php if($empresa['estatus'] == 0) { ?><span class="badge badge-danger">Inactiva</span><?php } ?></td>
                                     <td style="vertical-align: middle;"><?=$empresa['direccion']; ?></td>
                                     <td style="vertical-align: middle;"><?=$empresa['telefono']; ?></td>    
@@ -352,8 +352,17 @@ $(document).ready(function()
         }
         var fila_seleccionada = table.row(this).data();
         var id_empresa = fila_seleccionada[0];
-        console.log(id_empresa);
+        var empresa = fila_seleccionada[1];
+        /*console.log(empresa);*/
+        var direccion = fila_seleccionada[2];
+        var telefono = fila_seleccionada[3];
+        var correo = fila_seleccionada[4];
+        /*console.log(id_empresa);*/
         $('.oculto_id_empresa').attr('value', id_empresa);
+        $('#nombre-mod').attr('value', empresa);
+        $('#direccion-mod').attr('value', direccion);
+        $('#telefono-mod').attr('value', telefono);
+        $('#correo-mod').attr('value', correo);
     } );
 });
 

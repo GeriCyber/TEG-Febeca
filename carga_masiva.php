@@ -59,7 +59,7 @@
 									</div>
 								</form>
 								<div class="alert alert-success mt-5 text-justify">
-									El archivo debe ser un documento <span class="badge badge-pill badge-success">EXCEL</span> <b>.xlsx</b> el mismo debe contener el nombre, apellido, cedula, teléfono, correo, empresa, un nombre de usuario, una contraseña y el rol de ese usuario en el sistema.
+									El archivo debe ser un documento <span class="badge badge-pill badge-success">EXCEL</span> <b>.xlsx</b> el mismo debe contener el nombre, apellido, cedula, teléfono, correo, empresa, contraseña, un nombre de usuario y el rol de ese usuario en el sistema.
 								</div>
 								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-img-example" >Ver ejemplo de documento</button>
 	                		</div>	
