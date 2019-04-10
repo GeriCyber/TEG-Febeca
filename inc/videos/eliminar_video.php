@@ -26,7 +26,7 @@
         //Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $registro, $fecha, 'Eliminó un vídeo');
 
-        $exito = urlencode("Se elimino el vídeo");
+        $exito = urlencode("Se eliminó el vídeo");
         header("Location:../../videos.php?exito=".$exito);
         die;
     }

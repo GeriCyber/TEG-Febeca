@@ -66,7 +66,7 @@
                     $db->eliminar_asignacion_video($id);
             }
             else
-                $error .= 'No se encontro el video: "'.$nombre.'" ';
+                $error .= 'No se encontró el vídeo: "'.$nombre.'" ';
         }
     }
 

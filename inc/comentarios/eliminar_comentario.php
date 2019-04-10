@@ -15,7 +15,7 @@
 		//Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $comentario, $fecha, 'Eliminó una comentario');
 
-		$exito = urlencode("Se elimino el comentario");
+		$exito = urlencode("Se eliminó el comentario");
 	    header("Location:../../valoraciones.php?exito=".$exito);
 	    die;
 	}

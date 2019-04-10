@@ -10,7 +10,9 @@
     $id_usuario = !empty($_POST['id_usuario']) ? $_POST['id_usuario'] : 0;
     $id_rol = !empty($_POST['id_rol']) ? $_POST['id_rol'] : 0;
     $nombre = !empty($_POST['nombre']) ? $_POST['nombre'] : 'null';
+    $clave = !empty($_POST['clave']) ? $_POST['clave'] : 0;
     $apellido = !empty($_POST['apellido']) ? $_POST['apellido'] : 'null';
+    $cedula = !empty($_POST['cedula']) ? $_POST['cedula'] : 'null';
     $telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : 0;
     $correo = !empty($_POST['correo']) ? $_POST['correo'] : 0;
     $taller = !empty($_POST['taller']) ? $_POST['taller'] : 0;
@@ -18,12 +20,12 @@
     $android = !empty($_POST['android']) ? $_POST['android'] : false;
     $registro = $nombre.' '.$apellido;
 
-    if($db->actualizar_usuario($id_sucursal, $id_rol, $nombre, $apellido, $telefono, $correo, $taller, $id_usuario))
+    if($db->actualizar_usuario($id_sucursal, $id_rol, $nombre, $apellido, $cedula, $telefono, $correo, $taller, $id_usuario, $clave))
     {
         //Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $registro, $fecha, 'Modificó un usuario');
 
-        $exito = urlencode("Se modifico el usuario");
+        $exito = urlencode("Se modificó el usuario");
         header("Location:../../usuarios.php?exito=".$exito);
         die;
     }

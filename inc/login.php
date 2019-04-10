@@ -26,11 +26,11 @@ if (!$android)
             switch ($resultado[0]["id_rol"]) 
             {
                 case "admin":
-                    header("Location: ../dashboard.php");
+                    header("Location: ../dashboard");
                     break;
 
                 case "analista":
-                    header("Location: ../dashboard.php");
+                    header("Location: ../dashboard");
                     break;
 
                 case "usuario":

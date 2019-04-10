@@ -19,7 +19,7 @@
 		//Registrando la accion
 		$db->RegisterActivity($usuario, $empresa, $descripcion, $fecha, 'Modificó una categoría');
 
-		$exito = urlencode("Se modifico la categoría");
+		$exito = urlencode("Se modificó la categoría");
 	    header("Location:../../categorias.php?exito=".$exito);
 	    die;
 	}

@@ -38,7 +38,7 @@
                         <div class="col-sm-12">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                               ¡Hay <?php echo $notificacion; ?> contenidos caducados!<br>
-                              <a href="eliminar_caducados.php" class="btn btn-sm btn-danger text-white mt-3"><i class="fa fa-trash"></i>&nbsp;&nbsp;Eliminar</a>
+                              <a href="eliminar-caducados" class="btn btn-sm btn-danger text-white mt-3"><i class="fa fa-trash"></i>&nbsp;&nbsp;Eliminar</a>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -126,16 +126,16 @@
 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="videos.php">Agregar/Asignar Vídeo<span class="pull-right"><i class="fa fa-play text-success"></i></span></a>
+                                    <a href="videos">Agregar/Asignar Vídeo<span class="pull-right"><i class="fa fa-play text-success"></i></span></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="documentos.php">Agregar/Asignar Documento<span class="pull-right"><i class="fa fa-file text-success"></i></span></a>
+                                    <a href="documentos">Agregar/Asignar Documento<span class="pull-right"><i class="fa fa-file text-success"></i></span></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="categorias.php">Crear/Modificar Categoría<span class="pull-right"><i class="fa fa-tag text-success"></i></span></a>
+                                    <a href="categorias">Crear/Modificar Categoría<span class="pull-right"><i class="fa fa-tag text-success"></i></span></a>
                                 </li>
                                 <li class="list-group-item">
-                                   <a href="valoraciones.php">Gestionar Valoraciones <span class="pull-right"><i class="fa fa-star text-success"></i></span></a>
+                                   <a href="valoraciones">Gestionar Valoraciones <span class="pull-right"><i class="fa fa-star text-success"></i></span></a>
                                 </li>
                             </ul>
 
@@ -157,10 +157,10 @@
 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="usuarios.php">Agregar/Modificar <span class="pull-right text-success"><i class="fa fa-plus text-da"></i></span></a>
+                                    <a href="usuarios">Agregar/Modificar <span class="pull-right text-success"><i class="fa fa-plus text-da"></i></span></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="carga_masiva.php">Carga Masiva <span class="pull-right text-success"><i class="fa fa-cloud-upload text-da"></i></span></a>
+                                    <a href="carga-masiva-de-usuarios">Carga Masiva <span class="pull-right text-success"><i class="fa fa-cloud-upload text-da"></i></span></a>
                                 </li>
                             </ul>
 
@@ -182,10 +182,10 @@
 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="empresas.php">Agregar/Modificar <span class="pull-right"><i class="fa fa-plus text-success"></i></span></a>
+                                    <a href="empresas">Agregar/Modificar <span class="pull-right"><i class="fa fa-plus text-success"></i></span></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="empresas.php">Buscar Empresa <span class="pull-right"><i class="fa fa-search text-success"></i></span></a>
+                                    <a href="empresas">Buscar Empresa <span class="pull-right"><i class="fa fa-search text-success"></i></span></a>
                                 </li>
                             </ul>
 

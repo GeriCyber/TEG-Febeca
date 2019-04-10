@@ -61,7 +61,7 @@
                   <li class="menu-item-has-children dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building-o"></i>Administrar Empresas</a>
                       <ul class="sub-menu children dropdown-menu">
-                          <li><i class="fa fa-plus"></i><a href="empresas.php">Agregar/Modificar Empresa</a></li>
+                          <li><i class="fa fa-plus"></i><a href="empresas">Agregar/Modificar Empresa</a></li>
                       </ul>
                   </li>
 
@@ -69,8 +69,8 @@
                   <li class="menu-item-has-children dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Administrar Usuarios</a>
                       <ul class="sub-menu children dropdown-menu">
-                          <li><i class="fa fa-plus"></i><a href="usuarios.php">Agregar/Modificar Usuarios</a></li>
-                          <li><i class="fa fa-cloud-upload"></i><a href="carga_masiva.php">Carga Masiva de Usuarios</a></li>
+                          <li><i class="fa fa-plus"></i><a href="usuarios">Agregar/Modificar Usuarios</a></li>
+                          <li><i class="fa fa-cloud-upload"></i><a href="carga-masiva-de-usuarios">Carga Masiva de Usuarios</a></li>
                       </ul>
                   </li>
 
@@ -78,27 +78,27 @@
                   <li class="menu-item-has-children dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-eye"></i>Administrar Contenido</a>
                       <ul class="sub-menu children dropdown-menu">
-                          <li><i class="fa fa-tag"></i><a href="categorias.php">Crear/Modificar Categoría</a></li>
-                          <li><i class="fa fa-file"></i><a href="documentos.php">Agregar/Asignar Documento</a></li>
-                          <li><i class="fa fa-youtube-play"></i><a href="videos.php">Agregar/Asignar Vídeo</a></li>
-                          <li><i class="fa fa-star"></i><a href="valoraciones.php">Gestionar valoraciones</a></li>
+                          <li><i class="fa fa-tag"></i><a href="categorias">Crear/Modificar Categoría</a></li>
+                          <li><i class="fa fa-file"></i><a href="documentos">Agregar/Asignar Documento</a></li>
+                          <li><i class="fa fa-youtube-play"></i><a href="videos">Agregar/Asignar Vídeo</a></li>
+                          <li><i class="fa fa-star"></i><a href="valoraciones">Gestionar valoraciones</a></li>
                       </ul>
                   </li>
 
                   <h3 class="menu-title">Reportes</h3><!-- /.menu-title -->
                   <li>
-                      <a href="reportes.php"> <i class="menu-icon fa fa-bar-chart-o (alias)"></i>Generar Reportes</a>
+                      <a href="reportes"> <i class="menu-icon fa fa-bar-chart-o (alias)"></i>Generar Reportes</a>
                   </li>
 
                   <h3 class="menu-title">Auditoría</h3><!-- /.menu-title -->
                   <li>
-                      <a href="auditoria.php"> <i class="menu-icon fa fa-exclamation-triangle (alias)"></i>Gestionar Actividad</a>
+                      <a href="auditoria"> <i class="menu-icon fa fa-exclamation-triangle (alias)"></i>Gestionar Actividad</a>
                   </li>
                 <?php }
                    else if ($_SESSION["id_rol"] == "analista"){ ?>
                   <h3 class="menu-title">Reportes</h3><!-- /.menu-title -->
                   <li>
-                      <a href="reportes.php"> <i class="menu-icon fa fa-bar-chart-o (alias)"></i>Generar Reportes </a>
+                      <a href="reportes"> <i class="menu-icon fa fa-bar-chart-o (alias)"></i>Generar Reportes </a>
                   </li>
               <?php } ?>
               </ul>
@@ -128,7 +128,7 @@
                         </button>
                         <div class="dropdown-menu mt-2 bubble" aria-labelledby="notification">
                           <p class="text-muted text-center">Tienes una Notificación</p>
-                          <a class="dropdown-item media bg-flat-color-4" href="eliminar_caducados.php">
+                          <a class="dropdown-item media bg-flat-color-4" href="eliminar-caducados">
                               <i class="fa fa-warning text-white"></i>
                               <p class="text-white">Hay <?php echo $notificacion; ?> contenidos caducados</p>
                           </a>
@@ -151,7 +151,7 @@
                             <i class="fa fa-caret-down text-white icon-size"></i>
                         </a>
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link text-muted" href="cambiar_contrasena.php"><i class="fa fa-lock"></i>&nbsp;&nbsp;Cambiar Contraseña</a>
+                                <a class="nav-link text-muted" href="cambiar-contrasena"><i class="fa fa-lock"></i>&nbsp;&nbsp;Cambiar Contraseña</a>
                                 <a class="nav-link text-muted" href="inc/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar Sesión</a>
                         </div>
                     </div>

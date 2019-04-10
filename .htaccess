@@ -1,3 +1,31 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^ingresar$ index.php
+RewriteRule ^dashboard$ dashboard.php
+RewriteRule ^empresas$ empresas.php
+RewriteRule ^usuarios$ usuarios.php
+RewriteRule ^carga-masiva-de-usuarios$ carga_masiva.php
+RewriteRule ^documentos$ documentos.php
+RewriteRule ^videos$ videos.php
+RewriteRule ^categorias$ categorias.php
+RewriteRule ^valoraciones$ valoraciones.php
+RewriteRule ^reportes$ reportes.php
+RewriteRule ^auditoria$ auditoria.php
+RewriteRule ^eliminar-caducados$ eliminar_caducados.php
+RewriteRule ^cambiar-contrasena$ cambiar_contrasena.php
+RewriteRule ^reporte-filtrar-por-fechas$ empleados_rango_fecha.php
+RewriteRule ^reporte-empleados-por-empresa$ empleados_por_empresa.php
+RewriteRule ^reporte-registro-total-de-ingresos$ registro_total_ingresos.php
+RewriteRule ^reporte-videos-mas-vistos$ videos_mas_vistos.php
+RewriteRule ^reporte-videos-con-vistas-incompletas$ videos_vistas_incompletas.php
+RewriteRule ^reporte-documentos-mas-vistos$ documentos_mas_vistos.php
+RewriteRule ^reporte-videos-mas-valorados$ videos_mas_valorados.php
+RewriteRule ^reporte-videos-menos-valorados$ videos_menos_valorados.php
+RewriteRule ^reporte-videos-valorados-neutral$ videos_valoracion_neutral.php
+RewriteRule ^reporte-registro-total-de-valoraciones$ reportes_total_valoraciones.php
+
 # Mensaje de error personalizado en ubicación local
-ErrorDocument 404 /febeca/404.html
-ErrorDocument 403 /febeca/403.html
+# (Dejar ruta raiz en produccion /404.html /403.html)
+ErrorDocument 404 /Laravel/febeca/404.html
+ErrorDocument 403 /Laravel/febeca/403.html

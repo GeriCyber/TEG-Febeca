@@ -25,7 +25,7 @@
     	//Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $nombre, $fecha, 'Eliminó una categoría');
 
-		$exito = urlencode("Se elimino la categoría");
+		$exito = urlencode("Se eliminó la categoría");
 	    header("Location:../../categorias.php?exito=".$exito);
 	    die;
 	}

@@ -6,11 +6,11 @@
     switch ($id_rol) 
     {
         case "admin":
-            header("Location: dashboard.php".$err);
+            header("Location: dashboard".$err);
             break;
 
         case "analista":
-            header("Location: dashboard.php".$err);
+            header("Location: dashboard".$err);
             break;
     }
 ?>

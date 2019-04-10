@@ -174,7 +174,7 @@ $roles = $db->buscar_rol();
                                     <label class="form-control-label" for="cedula">Cédula <b class="text-danger">*</b></label>
                                 </div>
                                 <div class="col-md-8 col-12">
-                                    <input id="cedula_nuevo" name="cedula" type="text" placeholder="Ej: 15.698.412" class="form-control input-md" required>
+                                    <input id="cedula_nuevo" name="cedula" type="text" placeholder="Ej: 15698412" class="form-control input-md" required>
                                 </div>
                             </div>
 
@@ -323,10 +323,10 @@ $roles = $db->buscar_rol();
 
                     <div class="row form-group">
                         <div class="col col-md-3">
-                            <label class="form-control-label" for="cedula">Cédula</label>
+                            <label class="form-control-label" for="cedula">Cédula <b class="text-danger">*</b></label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="cedula-edit" name="cedula" type="text" placeholder="No se puede modificar" disabled="" class="form-control input-md">
+                            <input id="cedula-edit" name="cedula" type="text" placeholder="Ej: 15698412" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -353,7 +353,16 @@ $roles = $db->buscar_rol();
                             <label class="form-control-label" for="id_usuario">Nombre de Usuario</label>
                         </div>
                         <div class="col-md-8 col-12">
-                            <input id="id_usuario-edit" maxlength="40" name="id_usuario" type="text" class="form-control input-md" placeholder="No se puede modificar" disabled="">
+                            <input id="id_usuario-edit" maxlength="40" name="id_usuario" type="text" class="form-control input-md" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label class="form-control-label" for="clave">Contraseña&nbsp;<b class="text-danger">*</b></label>
+                        </div>
+                        <div class="col-md-8 col-12">
+                            <input type="password" id="password-edit" name="clave" class="form-control input-md" required>
                         </div>
                     </div>
 
@@ -562,8 +571,10 @@ $(document).ready(function()
         var empresa = fila_seleccionada[6];
         var rol = fila_seleccionada[7];*/
         $('.oculto_id_usuario').attr('value', data[0]);
+        $('#id_usuario-edit').attr('value', data[0]);
         $('#nombre-edit').attr('value', data[1]);
         $('#apellido-edit').attr('value', data[2]);
+        $('#cedula-edit').attr('value', data[3]);
         $('#telefono-edit').attr('value', data[4]);
         $('#correo-edit').attr('value', data[5]);
         $('#span-empresa').text(data[6]);

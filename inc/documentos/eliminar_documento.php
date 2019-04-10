@@ -26,7 +26,7 @@
         //Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $registro, $fecha, 'Eliminó un documento');
 
-        $exito = urlencode("Se elimino el documento");
+        $exito = urlencode("Se eliminó el documento");
         header("Location:../../documentos.php?exito=".$exito);
         die;
     }

@@ -30,7 +30,7 @@ $db = new funciones_BD();
                             <th>Nombre</th>
                             <th>Descripcion</th>
                             <th class="text-center">Empresas</th>
-                            <th class="text-center">Categorias</th>
+                            <th class="text-center">Categorías</th>
                             <th width="20" class="text-center">Vistas</th>
                         </thead>
                         <tbody id="tabla" class="pb-3">

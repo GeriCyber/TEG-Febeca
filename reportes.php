@@ -31,9 +31,9 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <div class="dropdown-menu-content">
                                         <!--<a class="dropdown-item" href="#SeleccionarFecha" data-toggle="modal" data-target="#SeleccionarFecha">Ingresos por fecha</a><-->
-                                        <a class="dropdown-item" href="empleados_rango_fecha.php">Filtrar por rango de fechas</a>
+                                        <a class="dropdown-item" href="reportes-filtrar-por-fechas">Filtrar por rango de fechas</a>
                                         <a class="dropdown-item" href="#SeleccionarEmpresa" data-toggle="modal" data-target="#SeleccionarEmpresa">Ingresos por empresa</a>
-                                        <a class="dropdown-item" href="registro_total_ingresos.php">Registro total de ingresos</a>
+                                        <a class="dropdown-item" href="reporte-registro-total-de-ingresos">Registro total de ingresos</a>
                                     </div>
                                 </div>
                             </div>
@@ -67,28 +67,28 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <div class="dropdown-menu-content">
                                         <a class="dropdown-item" href="videos_mas_vistos.php">Vídeos más vistos</a>
-                                        <a class="dropdown-item" href="videos_vistas_incompletas.php">Vídeos con vistas imcompletas</a>
-                                        <a class="dropdown-item" href="documentos_mas_vistos.php">Documentos más vistos</a>
+                                        <a class="dropdown-item" href="reporte-videos-con-vistas-incompletas">Vídeos con vistas imcompletas</a>
+                                        <a class="dropdown-item" href="reporte-documentos-mas-vistos">Documentos más vistos</a>
                                     </div>
                                 </div>
                             </div>
                             
                             <?php 
-                                $documento = $db->GetMostViewedDocument(1);
-                                $doc = '';
+                                $video = $db->VideoMasVisto();
+                                $vid = '';
                                 $val = 0;
-                                if(!empty($documento))
+                                if(!empty($video))
                                 {
-                                    if(strlen($documento[0]['nombre']) > 20) 
+                                    if(strlen($video[0]['nombre']) > 20) 
                                     {
-                                        $doc = substr($documento[0]['nombre'],0,20).'... tiene';
-                                        $val = $documento[0]['vistas'];
+                                        $vid = substr($video[0]['nombre'],0,20).'... tiene';
+                                        $val = $video[0]['vistas'];
                                     }
                                         
                                     else 
-                                        $doc = $documento[0]['nombre'].' tiene';
+                                        $vid = $video[0]['nombre'].' tiene';
                                 } else { echo 'Sin visualizaciones'; } ?>
-                            <p class="text-light"><?=$doc ?></p>
+                            <p class="text-light"><?=$vid ?></p>
                             <h4 class="mb-4">
                                 <span class="count"><?=$val ?></span>&nbsp;&nbsp;vistas&nbsp;<i class="fa fa-eye"></i>
                             </h4>
@@ -111,10 +111,10 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <div class="dropdown-menu-content">
-                                        <a class="dropdown-item" href="videos_mas_valorados.php">Vídeos más valorados</a>
-                                        <a class="dropdown-item" href="videos_menos_valorados.php">Vídeos menos valorados</a>
-                                        <a class="dropdown-item" href="videos_valoracion_neutral.php">Vídeos con valoracion neutral</a>
-                                        <a class="dropdown-item" href="reportes_total_valoraciones.php">Registro total de valoraciones</a>
+                                        <a class="dropdown-item" href="reporte-videos-mas-valorados">Vídeos más valorados</a>
+                                        <a class="dropdown-item" href="reporte-videos-menos-valorados">Vídeos menos valorados</a>
+                                        <a class="dropdown-item" href="reporte-videos-valorados-neutral">Vídeos con valoracion neutral</a>
+                                        <a class="dropdown-item" href="reporte-registro-total-de-valoraciones">Registro total de valoraciones</a>
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="form-horizontal" method="GET" action="empleados_por_empresa.php">
+                    <form class="form-horizontal" method="GET" action="reporte-empleados-por-empresa">
 
                         <fieldset>
 
@@ -258,13 +258,23 @@
                                     <label class="form-control-label" for="id_tipo_falla">Empresas con ingresos registrados</label>
                                 </div>
                                 <div class="col-md-8 col-12">
-                                    <select name="empresa" class="form-control">
                                 <?php 
                                 $empresas = $db->GetAvailableEmpresas();
-                                foreach ($empresas as $empresa)
-                                { ?>
-                                    <option value="<?=$empresa["id_sucursal"]; ?>"><?=$empresa["nombre"]; ?></option>
-                                <?php } ?>
+                                if(empty($empresas)) { ?>
+                                    <select name="empresa" class="form-control" disabled></select>
+                                        <span class="help-block text-muted">No hay reportes disponibles</span>
+                                        <div class="form-group text-center">
+                                          <div class="col-md-12 pt-3">
+                                              <button type="button" disabled name="submit" class="btn btn-success">Enviar</button>
+                                          </div>
+                                        </div>
+                                    <?php } else { ?> 
+                                    <select name="empresa" class="form-control">
+                                        <?php foreach ($empresas as $empresa)
+                                        { ?>
+                                            <option value="<?=$empresa["id_sucursal"]; ?>"><?=$empresa["nombre"]; ?></option>
+                                        <?php } ?>
+
                                     </select>
                                 </div>
                             </div>
@@ -274,6 +284,7 @@
                                   <button type="submit" name="submit" class="btn btn-success">Enviar</button>
                               </div>
                             </div>
+                        <?php } ?>
                         </fieldset>
                     </form>
                 </div>

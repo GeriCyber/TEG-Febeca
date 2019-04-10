@@ -290,18 +290,22 @@ class funciones_BD
             return false;
     }
 
-    public function actualizar_usuario($id_sucursal, $id_rol, $nombre, $apellido, $telefono, $correo, $taller, $id_usuario)
+    public function actualizar_usuario($id_sucursal, $id_rol, $nombre, $apellido, $cedula, $telefono, $correo, $taller, $id_usuario, $clave)
     {
         $db = $this->connect();
+        $clave_encriptada = mysqli_real_escape_string($db, md5($clave));
         $nombre_codificado = mysqli_real_escape_string($db, ($nombre));
         $apellido_codificado = mysqli_real_escape_string($db, ($apellido));
+        $cedula_codificado = mysqli_real_escape_string($db, ($cedula));
         $sql = "UPDATE usuarios 
                 SET id_sucursal = '$id_sucursal',
                 id_rol = '$id_rol',
                 nombre = '$nombre_codificado',
                 apellido = '$apellido_codificado',
+                cedula = '$cedula_codificado',
                 telefono = '$telefono',
                 correo = '$correo',
+                clave = '$clave_encriptada',
                 taller = $taller
                 WHERE id_usuario = '$id_usuario'";
         $result = mysqli_query($db, $sql);
@@ -1559,6 +1563,33 @@ class funciones_BD
                     'nombre' => $registro['nombre'],
                     'descripcion' => $registro['descripcion'],
                     'id_documento' => $registro['id_documento'],
+                    'vistas' => $registro['total']
+                );
+                $lista[] = $datos;
+            }
+        }
+        return ($lista);
+    }
+
+    public function VideoMasVisto()
+    {
+        $db = $this->connect();
+        $sql = "SELECT id_video, descripcion, nombre, COUNT(id_video) AS total
+                FROM  logs_videos 
+                WHERE vistas = 1
+                GROUP BY id_video
+                ORDER BY total DESC LIMIT 1";
+
+        $lista = array();
+        $result = mysqli_query($db, $sql);
+        if ($result)
+        {
+            while ($registro = mysqli_fetch_assoc($result))
+            {
+                $datos = array(
+                    'nombre' => $registro['nombre'],
+                    'descripcion' => $registro['descripcion'],
+                    'id_video' => $registro['id_video'],
                     'vistas' => $registro['total']
                 );
                 $lista[] = $datos;

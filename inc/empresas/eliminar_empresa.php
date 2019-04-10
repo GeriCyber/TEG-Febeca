@@ -6,7 +6,7 @@
 
 	if($db->eliminar_sucursal($id_sucursal))
     {
-        $exito = urlencode("Se elimino la empresa");
+        $exito = urlencode("Se eliminó la empresa");
         header("Location:../../empresas.php?exito=".$exito);
         die;
     }

@@ -16,7 +16,7 @@
         //Registrando la accion
         $db->RegisterActivity($usuario, $empresa, $registro, $fecha, 'Eliminó un usuario');
 
-        $exito = urlencode("Se elimino el usuario");
+        $exito = urlencode("Se eliminó el usuario");
         header("Location:../../usuarios.php?exito=".$exito);
         die;
     }

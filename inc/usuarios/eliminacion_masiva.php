@@ -30,7 +30,7 @@
                 $db->RegisterActivity($usuario, $empresa, $registro, $fecha, 'Eliminó un usuario');
             }
             else
-                $error .= 'No se encontro el usuario: "'.$id_usuario.'" ';
+                $error .= 'No se encontró el usuario: "'.$id_usuario.'" ';
         }
     }
 
