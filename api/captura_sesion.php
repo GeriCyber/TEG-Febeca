@@ -1,5 +1,5 @@
 <?php 
-$id_usuario = $_POST['id_usuario']
+$id_usuario = $_POST['id_usuario'];
 $id_sucursal = $_POST['id_sucursal'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];

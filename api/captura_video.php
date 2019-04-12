@@ -1,15 +1,14 @@
-<?php
-$id_video = $_POST['id_video'];
-$comentario = $_POST['comentario'];
-$valoracion = $_POST['valoracion'];
+<?php 
 $id_usuario = $_POST['id_usuario'];
-$fecha = $_POST['fecha'];
+$id_video = $_POST['id_video'];
+$nombre = $_POST['nombre'];
+$descripcion = $_POST['descripcion'];
+$vistas = $_POST['vistas'];
 
 require_once '../inc/funciones_bd.php';
 $db = new funciones_BD();
 
-
-if ($db->comentar_video($id_video, $comentario, $valoracion, $id_usuario, $fecha)){
+if ($db->capture_video($id_usuario,$id_video,$nombre,$descripcion,$vistas)){
 	$resultado = ['estatus' => 1];
 }
 else{
